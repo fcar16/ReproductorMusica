@@ -32,7 +32,7 @@ src/com/example/reproductormusica: Contiene los archivos fuente del proyecto
    - Puede haber problemas de diseño en la interfaz gráfica, especialmente en diferentes tamaños de pantalla o sistemas operativos. Se recomienda ajustar los estilos y diseño según sea necesario.
 
 5.2. **Reproducción y Pausa:**
-   - Al pausar la reproducción y luego resumirla, la canción comienza desde el principio en lugar de continuar desde donde se pausó. Este comportamiento puede deberse a limitaciones en la API de sonido utilizada.
+   - Al pausar la reproducción y luego resumirla, la canción comienza desde el principio en lugar de continuar desde donde se pausó. 
 
 5.3. **Cambio de Canción al Pausar:**
    - Al pausar la reproducción, a veces se produce un cambio de canción. Este problema está relacionado con la lógica de pausa y reproducción multihilo y se está investigando.
