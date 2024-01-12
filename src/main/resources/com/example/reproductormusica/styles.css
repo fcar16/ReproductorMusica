@@ -9,6 +9,12 @@ VBox {
 Button {
     -fx-font-size: 14;
     -fx-min-width: 120;
+    -fx-background-color: #4CAF50; /* Verde */
+    -fx-text-fill: white; /* Texto blanco */
+}
+
+Button:hover {
+    -fx-background-color: #45a049; /* Cambia el color al pasar el ratón */
 }
 
 Label {
@@ -19,5 +25,3 @@ Label {
 HBox {
     -fx-spacing: 10;
 }
-
-

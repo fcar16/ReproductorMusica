@@ -16,7 +16,7 @@ public class Main extends Application {
         Parent root = loader.load();
 
         MusicPlayerController controller = loader.getController();
-        MusicPlayer musicPlayer = new MusicPlayer(new String[]{"src" + File.separator + "Music" + File.separator + "Violines.wav", "src" + File.separator + "Music" + File.separator + "Purple Widow.wav"});
+        MusicPlayer musicPlayer = new MusicPlayer(new String[]{"src" + File.separator + "Music" + File.separator + "Violines.wav","src" + File.separator + "Music" + File.separator + "Thalassophobia.wav", "src" + File.separator + "Music" + File.separator + "Purple Widow.wav"});
         controller.setMusicPlayer(musicPlayer);
 
         primaryStage.setTitle("Music Player");
