@@ -6,7 +6,7 @@ Este proyecto implementa un reproductor de música simple en Java con capacidad 
 
 1. **Clonar el Repositorio:**
    ```bash
-   git clone
+   git clone https://github.com/fcar16/ReproductorMusica.git
 
 
 
