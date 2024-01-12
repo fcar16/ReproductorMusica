@@ -23,14 +23,17 @@ public class MusicPlayer {
         this.currentPosition = 0;
     }
 
-    public void play() {
+  public Thread play() {
         if (!playing) {
             playing = true;
             playerThread = new Thread(() -> playSong(playlist[currentSong]));
             playerThread.start();
+            return playerThread;
         } else if (paused) {
             resume();
+            return playerThread;
         }
+        return null; // En caso de que ya esté reproduciendo y no esté pausado
     }
 
     public void stop() {
@@ -70,7 +73,18 @@ public class MusicPlayer {
     }
 
     public void nextSong() {
-        stop();
+        stop(); // Detiene la reproducción actual
+
+        // Espera a que el hilo actual termine antes de comenzar el siguiente
+        try {
+            if (playerThread != null) {
+                playerThread.join();
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        // Inicia la reproducción de la siguiente canción
         currentSong = (currentSong + 1) % playlist.length;
         play();
     }
