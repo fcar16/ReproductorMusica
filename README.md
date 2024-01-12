@@ -43,3 +43,22 @@ src/com/example/reproductormusica: Contiene los archivos fuente del proyecto
 5.4. **Problemas al Cargar Múltiples Canciones:**
    - Pueden surgir problemas al intentar cargar y reproducir varias canciones de la lista de reproducción. Asegúrate de proporcionar rutas de archivos correctas y formatos de audio compatibles.
 
+
+
+**6.-Posibles Mejoras y Características Futuras**
+
+1. **Selección Directa de Canciones:**
+   - Implementar la capacidad de seleccionar directamente una canción desde la lista de reproducción, en lugar de tener que ir pasando una a una.
+
+2. **Mejora de la Interfaz Gráfica:**
+   - Trabajar en una interfaz gráfica más intuitiva y atractiva. Considerar el uso de iconos, colores y diseño moderno para mejorar la experiencia del usuario.
+
+3. **Soporte para Formatos de Audio Adicionales:**
+   - Ampliar la compatibilidad con diferentes formatos de audio para permitir la reproducción de una variedad más amplia de archivos de música.
+
+4. **Controles de Volumen y Ecualizador:**
+   - Agregar controles de volumen y la posibilidad de ajustar un ecualizador para una experiencia de audio más personalizada.
+
+5. **Información de la Canción en Tiempo Real:**
+   - Mostrar información en tiempo real sobre la canción que se está reproduciendo, como el nombre, artista y duración.
+
