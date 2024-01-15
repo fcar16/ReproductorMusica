@@ -23,22 +23,16 @@ public class MusicPlayer {
         this.currentPosition = 0;
     }
 
-    // Método para iniciar la reproducción de la lista de reproducción
-    public Thread play() {
+    public void play() {
         if (!playing) {
             playing = true;
             playerThread = new Thread(() -> playSong(playlist[currentSong]));
             playerThread.start();
-
-            return playerThread;
         } else if (paused) {
             resume();
-            return playerThread;
         }
-        return null; // En caso de que ya esté reproduciendo y no esté pausado
     }
 
-    // Método para detener la reproducción
     public void stop() {
         if (playing) {
             playing = false;
@@ -56,7 +50,6 @@ public class MusicPlayer {
         }
     }
 
-    // Método para pausar la reproducción
     public void pause() {
         if (playing && clip != null && clip.isRunning()) {
             currentPosition = clip.getMicrosecondPosition();
@@ -67,7 +60,6 @@ public class MusicPlayer {
         }
     }
 
-    // Método para reanudar la reproducción desde la posición de pausa
     public void resume() {
         if (playing && paused) {
             playSong(playlist[currentSong], currentPosition);
@@ -77,30 +69,16 @@ public class MusicPlayer {
         }
     }
 
-    // Método para pasar a la siguiente canción
     public void nextSong() {
-        stop(); // Detiene la reproducción actual
-
-        // Espera a que el hilo actual termine antes de comenzar el siguiente
-        try {
-            if (playerThread != null) {
-                playerThread.join();
-            }
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        // Inicia la reproducción de la siguiente canción
+        stop();
         currentSong = (currentSong + 1) % playlist.length;
         play();
     }
 
-    // Método para reproducir una canción desde el archivo especificado
     private void playSong(String filePath) {
         playSong(filePath, 0);
     }
 
-    // Método para reproducir una canción desde una posición específica
     private void playSong(String filePath, long startPosition) {
         try {
             File audioFile = new File(filePath);
@@ -120,7 +98,6 @@ public class MusicPlayer {
                 }
             });
 
-            // Bucle mientras está reproduciendo y la canción está en ejecución
             while (playing && clip.isRunning()) {
                 try {
                     Thread.sleep(100);
@@ -135,38 +112,6 @@ public class MusicPlayer {
         }
     }
 
-    // Método para obtener la lista de reproducción
-    public String[] getPlaylist() {
-        return playlist;
-    }
-
-    // Método para obtener la posición de la canción actual en la lista de reproducción
-    public int getCurrentSong() {
-        return currentSong;
-    }
-
-    // Método para obtener la posición de reproducción actual
-    public long getCurrentPosition() {
-        return currentPosition;
-    }
-
-    // Método para verificar si la música se está reproduciendo
-    public boolean isPlaying() {
-        if (clip != null) {
-            return clip.isRunning() && playing && !paused;
-        }
-        return false;
-    }
-
-    // Método para obtener la duración de la canción actual
-    public long getSongDuration() {
-        if (clip != null) {
-            return clip.getMicrosecondLength();
-        }
-        return 0;
-    }
-
-    // Método principal para probar el reproductor de música
     public static void main(String[] args) {
         String[] playlist = {"src" + File.separator + "Music" + File.separator + "Violines.wav", "src" + File.separator + "Music" + File.separator + "Purple Widow.wav"};
 
@@ -186,5 +131,13 @@ public class MusicPlayer {
         } finally {
             player.stop();
         }
+    }
+
+    public String[] getPlaylist() {
+        return playlist;
+    }
+
+    public int getCurrentSong() {
+        return currentSong;
     }
 }
