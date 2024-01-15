@@ -20,7 +20,7 @@ public class Main extends Application {
         controller.setMusicPlayer(musicPlayer);
 
         primaryStage.setTitle("Music Player");
-        primaryStage.setScene(new Scene(root, 300, 200));
+        primaryStage.setScene(new Scene(root, 300   , 300));
         primaryStage.show();
     }
 
