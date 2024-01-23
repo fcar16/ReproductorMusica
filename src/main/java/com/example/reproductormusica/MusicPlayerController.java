@@ -27,6 +27,7 @@ public class MusicPlayerController {
         this.pauseTransition = new PauseTransition(Duration.millis(1000));
     }
 
+    // Metodos para controlar la reproducción en el controllador
     @FXML
     private void play() {
         if (musicPlayer != null) {
@@ -39,7 +40,7 @@ public class MusicPlayerController {
                     progressBar.setProgress(progress);
 
                     try {
-                        Thread.sleep(1000); // Actualiza cada 1000 milisegundos (1 segundo)
+                        Thread.sleep(500); // Actualiza cada 500 milisegundos (0.5 segundo)
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -48,6 +49,7 @@ public class MusicPlayerController {
         }
     }
 
+    //Metodo para detener la reproducción desde el controllador
     @FXML
     private void stop() {
         if (musicPlayer != null) {
@@ -56,6 +58,7 @@ public class MusicPlayerController {
         }
     }
 
+    //Metodo para pausar la reproducción desde el controllador
     @FXML
     private void pause() {
         if (musicPlayer != null) {
@@ -64,6 +67,7 @@ public class MusicPlayerController {
         }
     }
 
+    //Metodo para reanudar la reproducción desde el controllador
     @FXML
     private void resume() {
         if (musicPlayer != null) {
@@ -72,6 +76,7 @@ public class MusicPlayerController {
         }
     }
 
+    //Metodo para pasar a la siguiente cancion desde el controllador
     @FXML
     private void nextSong() {
         if (musicPlayer != null) {
@@ -86,7 +91,7 @@ public class MusicPlayerController {
         if (musicPlayer != null) {
             int currentSongIndex = musicPlayer.getCurrentSong();
             String currentSongName = getSongName(currentSongIndex);
-            Platform.runLater(() -> currentSongLabel.setText("Current Song: " + currentSongName));
+            Platform.runLater(() -> currentSongLabel.setText( currentSongName));
         }
     }
 
@@ -134,7 +139,7 @@ public class MusicPlayerController {
         Thread progressBarThread = new Thread(() -> {
             while (true) {
                 try {
-                    Thread.sleep(1000); // Espera 1 segundo
+                    Thread.sleep(500); // Espera 0.5 segundos antes de actualizar la barra de progreso
                     updateProgressBar();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

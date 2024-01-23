@@ -9,17 +9,16 @@ VBox {
 Button {
     -fx-font-size: 14;
     -fx-min-width: 120;
-    -fx-background-color: #4CAF50; /* Verde */
-    -fx-text-fill: white; /* Texto blanco */
+    -fx-background-color: #00E413; /* Verde */
+    -fx-text-fill: black; /* Texto negro */
 }
 
 Button:hover {
-    -fx-background-color: #45a049; /* Cambia el color al pasar el ratón */
+    -fx-background-color: #f50000; /* Cambia el color al pasar el ratón */
 }
 
-Label {
-    -fx-font-size: 16;
-    -fx-font-weight: bold;
+Button:pressed {
+    -fx-background-color: #eb0505; /* Cambia el color al presionar el botón */
 }
 
 HBox {

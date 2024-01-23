@@ -6,12 +6,19 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reproductormusica.MusicPlayerController">
+<VBox xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reproductormusica.MusicPlayerController">
     <children>
         <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="248.0" />
-        <Label fx:id="currentSongLabel" prefHeight="26.0" prefWidth="249.0" text="" />
-        <Button onAction="#play" text="Play" />
+        <Label fx:id="currentSongLabel" prefHeight="29.0" prefWidth="177.0" text="Musica" textAlignment="CENTER" textFill="#e40606">
+         <font>
+            <Font name="DejaVu Sans Mono Bold" size="18.0" />
+         </font></Label>
+      <Line endX="100.0" startX="-100.0" stroke="#00e413" />
+      <Line endX="100.0" startX="-100.0" stroke="#f50000" />
+        <Button onAction="#play" text="Play" textFill="#eb0505" />
         <Button onAction="#stop" text="Stop" />
         <HBox>
             <Button onAction="#pause" text="Pause" />
