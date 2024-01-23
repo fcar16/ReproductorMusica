@@ -1,9 +1,11 @@
 package com.example.reproductormusica;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.util.Duration;
 
 import java.io.File;
 
@@ -13,6 +15,8 @@ public class MusicPlayerController {
     @FXML
     private ProgressBar progressBar;
 
+    private PauseTransition pauseTransition;
+
     private MusicPlayer musicPlayer;
 
     // Método llamado para establecer el MusicPlayer en el controlador
@@ -20,6 +24,7 @@ public class MusicPlayerController {
         this.musicPlayer = musicPlayer;
         updateCurrentSongLabel();  // Actualiza la etiqueta con la canción actual
         setupProgressBar();  // Configura la barra de progreso
+        this.pauseTransition = new PauseTransition(Duration.millis(1000));
     }
 
     @FXML
